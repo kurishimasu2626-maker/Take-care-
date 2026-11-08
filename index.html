@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Take care</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at top, #293659, #0c1020);
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    main {
+      width: min(90%, 550px);
+      padding: 35px;
+      text-align: center;
+      background: #ffffff10;
+      border: 1px solid #ffffff30;
+      border-radius: 22px;
+    }
+    p { color: #cbd3e5; line-height: 1.6; }
+    button {
+      background: #b8efcf;
+      color: #13251d;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 22px;
+      margin: 8px;
+      cursor: pointer;
+    }
+    [hidden] { display: none !important; }
+    #secreto {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: transparent;
+      color: #ffffff70;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section id="inicio">
+      <h1>Take care ✨</h1>
+      <p>Hay algo que me gustaría compartir contigo.</p>
+      <button onclick="mostrar('pregunta')">Comenzar</button>
+    </section>
+
+    <section id="pregunta" hidden>
+      <h2>Una pequeña pregunta</h2>
+      <p>¿Quieres descubrir lo que hay al final?</p>
+      <button onclick="mostrar('final')">Sí</button>
+      <button onclick="alert('Puedes pensarlo :)')">Tal vez</button>
+    </section>
+
+    <section id="final" hidden>
+      <h2>Gracias por llegar hasta aquí 💚</h2>
+      <p>Pronto habrá algo especial en este lugar.</p>
+      <button onclick="mostrar('inicio')">Volver</button>
+    </section>
+  </main>
+
+  <button id="secreto" onclick="alert('¡Encontraste un secreto! ✨')">✦</button>
+
+  <script>
+    function mostrar(id) {
+      document.querySelectorAll("main section").forEach(
+        seccion => seccion.hidden = seccion.id !== id
+      );
+    }
+  </script>
+</body>
+</html>
